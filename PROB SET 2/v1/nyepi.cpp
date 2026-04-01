@@ -28,6 +28,22 @@ void input(){
 void show_data(Ogoh* o){
         o->mean_value = ((o->value_1 + o->value_2 + o->value_3) / 3) * 10;
 
+        if(o->mean_value > 75){
+            o->classification = "Sangat Bagus";
+        }
+
+        else if (o->mean_value >= 50){
+            o->classification = "Cukup Bagus";
+        }
+
+        else if(o->mean_value >= 25){
+            o->classification = "Cukup";
+        }
+
+        else{
+            o->classification = "Kurang Bagus";
+        }
+
         cout << "-----------------------OUTPUT DATA---------------------------- \n";
         cout << "Nama tim: " << o->team_name << "\n";
         cout << "Nama Ogoh2: " << o->obj_name << "\n";
@@ -35,6 +51,7 @@ void show_data(Ogoh* o){
         cout << "Perolehan Nilai Kerapian: " << o->value_2 << "\n";
         cout << "Perolehan Nilai Menyeramkan: " << o->value_3 << "\n";
         cout << "Rata - rata: " << o->mean_value << "\n";
+        cout << "Klasifikasi Ogoh - Ogoh: " << o->classification << "\n";
 
         rank(o);
 }
@@ -42,3 +59,11 @@ void show_data(Ogoh* o){
 void rank(Ogoh* o){
         cout << "done. \n";
 }
+
+/* NOTICE AND TIPS
+There is a great way to use static_cast in this specific case.
+This happens if you want to change specific varible type to the other.
+Lets say from float to int. This removes all the .XXXXX the number 
+after the coma.
+
+*/
